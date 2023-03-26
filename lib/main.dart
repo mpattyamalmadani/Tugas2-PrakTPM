@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:tugas2/tourism_data.dart';
+import 'package:tugas2/list_page.dart';
+import 'package:tugas2/login_page.dart';
+
+void main() {
+  runApp(const AppTourism());
+}
+
+class AppTourism extends StatelessWidget {
+  const AppTourism({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Login Flutter',
+      initialRoute: '/',
+      routes: {
+        '/list': (context) => ListPage(),
+      },
+      theme : ThemeData(
+        primarySwatch : Colors.lime,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+    );
+  }
+}
+
