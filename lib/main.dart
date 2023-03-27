@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tugas2/tourism_data.dart';
 import 'package:tugas2/list_page.dart';
 import 'package:tugas2/login_page.dart';
 
@@ -13,7 +12,7 @@ class AppTourism extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Login Flutter',
+      title: 'Tourism Place',
       initialRoute: '/',
       routes: {
         '/list': (context) => ListPage(),

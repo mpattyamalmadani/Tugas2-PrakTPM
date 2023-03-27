@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tugas2/tourism_data.dart';
-
 import 'detail_page.dart';
 
 class ListPage extends StatefulWidget {
@@ -20,19 +19,26 @@ class _ListPageState extends State<ListPage> {
         child: Scaffold(
           appBar: AppBar(
             title: Text('Hi $username'),
+            actions: [
+              IconButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+              icon:const Icon(Icons.exit_to_app_sharp)),
+            ],
           ),
           body: Container(
             padding: EdgeInsets.all(10),
             child: ListView.builder(
               itemBuilder: (context, index) {
-                final TourismPlace dummy = tourismPlaceList[index];
+                final TourismPlace data = tourismPlaceList[index];
                 return Card(
                     child: InkWell(
                       onTap: (){
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context){
-                              return DetailPage(dummy: dummy);
+                              return DetailPage(datadummy: data);
                             })
                         );
                       },
@@ -42,7 +48,7 @@ class _ListPageState extends State<ListPage> {
                             height: 180,
                             width: double.infinity,
                             child: Image.network(
-                                dummy.imageUrls[0],
+                                data.imageUrls[0],
                                 fit: BoxFit.cover,
                                 color: const Color.fromRGBO(0, 0, 0, 0.5),
                                 colorBlendMode: BlendMode.darken
@@ -55,7 +61,7 @@ class _ListPageState extends State<ListPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    dummy.name,
+                                    data.name,
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 24,
@@ -66,13 +72,13 @@ class _ListPageState extends State<ListPage> {
                                       for (var i=0; i<5; i++)
                                         const Icon(
                                           Icons.star,
-                                          color: Colors.white,
+                                          color: Colors.yellow,
                                         ),
                                     ],
                                   ),
                                   // Text(hotel.stars),
                                   Text(
-                                    dummy.location,
+                                    data.location,
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 24,
@@ -87,14 +93,14 @@ class _ListPageState extends State<ListPage> {
                                           Icon(Icons.access_time,color: Colors.white),
                                           SizedBox(width: 8.0),
                                           Text(
-                                            dummy.openDays,
+                                            data.openDays,
                                             style: const TextStyle(
                                               color: Colors.white,
                                             ),
                                           ),
                                           SizedBox(width: 8.0),
                                           Text(
-                                            dummy.openTime,
+                                            data.openTime,
                                             style: const TextStyle(
                                               color: Colors.white,
                                             ),
@@ -106,7 +112,7 @@ class _ListPageState extends State<ListPage> {
                                           Icon(Icons.attach_money,color: Colors.white),
                                           SizedBox(width: 8.0),
                                           Text(
-                                            dummy.ticketPrice,
+                                            data.ticketPrice,
                                             style: const TextStyle(
                                               color: Colors.white,
                                             ),

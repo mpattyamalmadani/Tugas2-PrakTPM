@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'tourism_data.dart';
-import 'list_page.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -36,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
             key: _formKey,
             child: Column(
               children: [
-                Icon(Icons.beach_access_rounded, color: Colors.teal,size: 200,),
+                Icon(Icons.mode_of_travel_outlined, color: Colors.lime,size: 200,),
                 const SizedBox(height: 100),
                 //username
                 username(),
@@ -76,9 +73,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               fillColor: Colors.grey.shade200,
               filled: true,
-              labelText: 'Email',
+              labelText: 'Username',
               labelStyle: TextStyle(color: Colors.grey[700]),
-              hintText: "Masukkan Email",
+              hintText: "Masukkan Username",
               hintStyle: TextStyle(color: Colors.grey[500])
           ),
           validator: (value) {
@@ -145,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       // Check if the username and password are correct
-      if (_username == 'admin' && _password == 'password') {
+      if (_username == 'dani' && _password == '123190121') {
         // Navigate to the home page
         Navigator.pushReplacementNamed(
             context,
